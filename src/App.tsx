@@ -1,9 +1,9 @@
-import { Button } from '@chakra-ui/react';
+import { Toolbar } from './components/Toolbar';
 
 function App() {
   return (
     <>
-      <Button />
+      <Toolbar />
     </>
   );
 }
