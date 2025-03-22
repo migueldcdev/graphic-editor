@@ -1,3 +1,9 @@
+import { Box } from '@chakra-ui/react';
+
 export const ImageCanvas = () => {
-  return <div>Image Canvas</div>;
+  return (
+    <Box width="full" bgColor="red.100">
+      Image Canvas
+    </Box>
+  );
 };

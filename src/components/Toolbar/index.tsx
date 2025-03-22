@@ -4,7 +4,7 @@ import { LuRectangleHorizontal } from 'react-icons/lu';
 
 export const Toolbar = () => {
   return (
-    <Box height="100vh" paddingLeft="3" paddingTop="2" width="12">
+    <Box height="100vh" padding="3" paddingTop="2" width="16">
       <Tooltip
         content="Select area in manuscript"
         openDelay={250}
