@@ -1,5 +1,5 @@
-name: Testing
-run-name: ${{ github.actor }} is performing tests
+name: Continuous Integration
+run-name: ${{ github.actor }} is performing CI actions
 on:
   push:
     branches: [main]
