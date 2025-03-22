@@ -9,5 +9,6 @@
   "bracketSpacing": true,
   "jsxSingleQuote": false,
   "proseWrap": "preserve",
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-organize-imports"]
 }
