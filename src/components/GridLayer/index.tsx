@@ -40,6 +40,7 @@ export const GridLayer = () => {
           y={rectangle.coordinates.y}
           width={rectangle.width}
           height={rectangle.height}
+          rotation={rectangle.rotation}
           fill="blue"
           opacity={0.2}
         ></Rect>

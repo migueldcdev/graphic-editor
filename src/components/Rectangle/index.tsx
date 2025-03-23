@@ -4,6 +4,7 @@ import {
   Coordinates,
   Rectangle,
   updateRectangleCoordinates,
+  updateRectangleRotation,
   updateRectangleSize,
 } from '@/features/canvas/canvasSlice';
 import { useEffect, useRef, useState } from 'react';
@@ -28,6 +29,7 @@ export const RectangleComponent = ({ rectangle }: { rectangle: Rectangle }) => {
 
   function handleTransformEnd() {
     const node = shapeRef.current;
+
     dispatch(
       updateRectangleSize({
         id: rectangle.id,
@@ -37,6 +39,9 @@ export const RectangleComponent = ({ rectangle }: { rectangle: Rectangle }) => {
     );
     node.scaleX(1);
     node.scaleY(1);
+    dispatch(
+      updateRectangleRotation({ id: rectangle.id, rotation: node.rotation() }),
+    );
   }
 
   return (
@@ -47,6 +52,7 @@ export const RectangleComponent = ({ rectangle }: { rectangle: Rectangle }) => {
         y={rectangle.coordinates.y}
         width={rectangle.width}
         height={rectangle.height}
+        rotation={rectangle.rotation}
         fill="green"
         opacity={0.2}
         draggable

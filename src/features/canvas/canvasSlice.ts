@@ -11,6 +11,7 @@ export type Rectangle = {
   coordinates: Coordinates;
   width: number;
   height: number;
+  rotation: number;
 };
 
 type CanvasState = {
@@ -42,6 +43,7 @@ const canvasSlice = createSlice({
         coordinates: action.payload,
         width: 20,
         height: 20,
+        rotation: 0,
       };
       state.rectangles.push(rectangle);
       state.isCreateRectangleSelected = false;
@@ -65,6 +67,13 @@ const canvasSlice = createSlice({
         rect.height = action.payload.height;
       }
     },
+    updateRectangleRotation: (
+      state,
+      action: PayloadAction<{ id: string; rotation: number }>,
+    ) => {
+      const rect = state.rectangles.find((r) => r.id === action.payload.id);
+      if (rect) rect.rotation = action.payload.rotation;
+    },
     selectShowGrid: (state) => {
       state.isCreateRectangleSelected = false;
       state.isShowGridSelected = true;
@@ -83,5 +92,6 @@ export const {
   selectShowGrid,
   unselectShowGrid,
   updateRectangleSize,
+  updateRectangleRotation,
 } = canvasSlice.actions;
 export default canvasSlice.reducer;
