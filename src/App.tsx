@@ -5,12 +5,14 @@ import { ImageCanvas } from './components/ImageCanvas';
 import { Toolbar } from './components/Toolbar';
 
 function App() {
-  const image = useAppSelector((state) => state.image.image);
+  const isImageUploaded = useAppSelector(
+    (state) => state.image.isImageUploaded,
+  );
   return (
     <>
       <Flex>
-        {image && <Toolbar />}
-        {image ? <ImageCanvas /> : <FileUploader />}
+        {isImageUploaded && <Toolbar />}
+        {isImageUploaded ? <ImageCanvas /> : <FileUploader />}
       </Flex>
     </>
   );
