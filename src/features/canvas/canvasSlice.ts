@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
-type Coordinates = {
+export type Coordinates = {
   x: number;
   y: number;
 };
@@ -43,9 +43,22 @@ const canvasSlice = createSlice({
       state.rectangles.push(rectangle);
       state.isCreateRectangleSelected = false;
     },
+    updateRectangleCoordinates: (
+      state,
+      action: PayloadAction<{ id: string; coordinates: Coordinates }>,
+    ) => {
+      const rect = state.rectangles.find((r) => r.id === action.payload.id);
+      if (rect) {
+        rect.coordinates = action.payload.coordinates;
+      }
+    },
   },
 });
 
-export const { selectCreateRectangle, unselectCreateRectangle, addRectangle } =
-  canvasSlice.actions;
+export const {
+  selectCreateRectangle,
+  unselectCreateRectangle,
+  addRectangle,
+  updateRectangleCoordinates,
+} = canvasSlice.actions;
 export default canvasSlice.reducer;
