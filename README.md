@@ -1,54 +1,129 @@
-# React + TypeScript + Vite
+# Web Graphic Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal web-based image editor that allows users to **upload images**, **select areas of text within images**, and **process images efficiently**. Built with **modern web technologies** to ensure scalability, performance, and ease of use.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📂 **Upload Images** (via File Input or Drag & Drop)
+- 📝 **Select Text Areas within Images**
+- 🎨 **Smart Canvas Resizing** to maintain aspect ratio
+- 🔄 **Efficient State Management with Redux Toolkit**
+- 📊 **Real-time Monitoring with Datadog**
+- 🛠 **Automated CI/CD Pipeline for Continuous Integration & Deployment**
+- ☁️ **Deployed on Vercel** for seamless hosting
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Why These Technologies?
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+### ⚛️ React 19
+
+React provides a powerful component-based architecture that enables dynamic UI updates and ensures maintainability.
+
+### 🎨 Chakra UI
+
+Chakra UI was chosen for its **flexibility**, **accessibility**, and **design consistency**, allowing us to build a sleek and responsive interface effortlessly.
+
+### 🎭 Konva.js + react-konva
+
+Konva.js is optimized for **2D canvas rendering**, making it the ideal choice for handling **image manipulation** and **text area selection** with smooth performance.
+
+### 🏛 Redux Toolkit
+
+State management is streamlined using Redux Toolkit, which provides **predictable data flow**, **easy debugging**, and **performance optimizations**.
+
+### 📊 Datadog
+
+Datadog enables real-time observability, helping us **track performance**, **detect issues early**, and ensure **optimal user experience**.
+
+### 🚀 Vite
+
+Vite enables **blazing-fast development builds** and **hot module replacement**, significantly improving the developer experience.
+
+### 🔧 CI/CD with GitHub Actions
+
+A **CI/CD pipeline** is integrated via GitHub Actions to automate static code analysis, formatting and testing, ensuring high-quality updates and seamless releases.
+
+### ☁️ Vercel for Deployment
+
+Vercel is used for **serverless deployment**, enabling fast global access and easy scaling.
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/your-repo/image-editor.git
+   cd image-editor
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 📂 Project Structure
+
+```
+📦 graphic-editor
+├── 📂 .github/workflows # CI Pipeline Config (GitHub Actions)
+├── 📂 tests   # End-To-End test example
+├── 📂 src
+│   ├── 📂 app           # Redux Store and Hooks
+│   ├── 📂 components    # UI Components (Uploader, Canvas, Toolbar, etc.) and Chakra UI Components
+│   ├── 📂 features      # Redux slices
+│   ├── 📂 assets        # Static Assets (Icons, Logos, etc.)
+│   ├── App.tsx          # Main App Component
+|   ├── App.test.tsx     # Example unit test
+│   ├── main.tsx         # Entry Point
+│
+├── 📜 .prettierrc      # Opinionated code formatting rules
+├── 📜 eslint.config.js #
+├── 📜 package.json     # Dependencies and Scripts
+├── 📜 README.md        # Documentation
+├── 📜 tsconfig.json    # TypeScript Config
+├── 📜 vite.config.ts   # Vite Configuration
+├── 📜 vitest.config.ts # Vitest testing configuration
+└── 📜 vercel.json      # Vercel Deployment Config
+└── 📜 datadog.config.js # Datadog Configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## 🚀 Deployment
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+This project is **automatically deployed on Vercel** whenever changes are pushed to the `main` branch.
+
+---
+
+## 🧪 Running Tests
+
+This project uses **Vitest** and **Playwright** for testing:
+
+```sh
+npm run test       # Run unit tests (Vitest)
+npm run test:e2e   # Run end-to-end tests (Playwright)
 ```
+
+---
+
+## 📜 License
+
+MIT License © 2025 Miguel Diaz
