@@ -27,6 +27,14 @@ export const FileUploader = () => {
     fileInputRef.current?.click();
   }
 
+  function handleUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const localImageUrl = window.URL.createObjectURL(file);
+      dispatch(setImage(localImageUrl));
+    }
+  }
+
   return (
     <Box
       width="full"
@@ -40,6 +48,7 @@ export const FileUploader = () => {
         accept="image/*"
         ref={fileInputRef}
         style={{ display: 'none' }}
+        onChange={(e) => handleUpload(e)}
       />
       <AbsoluteCenter onClick={handleClick} cursor="pointer">
         <Box>
