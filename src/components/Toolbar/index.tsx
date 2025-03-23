@@ -1,28 +1,28 @@
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { Tooltip } from '@/components/ui/tooltip';
 import {
-  selectRectangle,
-  unselectRectangle,
+  selectCreateRectangle,
+  unselectCreateRectangle,
 } from '@/features/canvas/canvasSlice';
 import { Box, IconButton } from '@chakra-ui/react';
 import { LuRectangleHorizontal } from 'react-icons/lu';
 
 export const Toolbar = () => {
   const dispatch = useAppDispatch();
-  const isRectangleSelected = useAppSelector(
-    (state) => state.canvas.isRectangleSelected,
+  const isCreateRectangleSelected = useAppSelector(
+    (state) => state.canvas.isCreateRectangleSelected,
   );
 
   function handleRectangleClick() {
-    if (isRectangleSelected) {
-      dispatch(unselectRectangle());
+    if (isCreateRectangleSelected) {
+      dispatch(unselectCreateRectangle());
     } else {
-      dispatch(selectRectangle());
+      dispatch(selectCreateRectangle());
     }
   }
 
   return (
-    <Box height="100vh" padding="3" paddingTop="2" width="16">
+    <Box height="100vh" padding="3" paddingTop="2" width="16" bgColor="gray.50">
       <Tooltip
         content="Select area in manuscript"
         openDelay={250}
@@ -30,7 +30,7 @@ export const Toolbar = () => {
       >
         <IconButton
           aria-label="Select rectangle"
-          variant={!isRectangleSelected ? 'surface' : 'solid'}
+          variant={!isCreateRectangleSelected ? 'surface' : 'solid'}
           size="sm"
           onClick={handleRectangleClick}
         >

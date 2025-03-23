@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 type Coordinates = {
   x: number;
   y: number;
-}
+};
 
 export type Rectangle = {
   id: string;
-  coordinates: Coordinates
+  coordinates: Coordinates;
   width: number;
   height: number;
 };
@@ -20,37 +20,32 @@ type CanvasState = {
 
 const initialState: CanvasState = {
   isCreateRectangleSelected: false,
-  rectangles: [
-    {
-      id: 'string',
-      coordinates: {x: 10, y: 4},
-      width: 100,
-      height: 20,
-    },
-  ],
+  rectangles: [],
 };
 
 const canvasSlice = createSlice({
   name: 'canvas',
   initialState,
   reducers: {
-    selectRectangle: (state) => {
+    selectCreateRectangle: (state) => {
       state.isCreateRectangleSelected = true;
     },
-    unselectRectangle: (state) => {
+    unselectCreateRectangle: (state) => {
       state.isCreateRectangleSelected = false;
     },
     addRectangle: (state, action: PayloadAction<Coordinates>) => {
       const rectangle = {
         id: uuidv4(),
         coordinates: action.payload,
-        width: 0,
-        height: 0,
-      }
-      state.rectangles.push(rectangle)
-    }
+        width: 20,
+        height: 20,
+      };
+      state.rectangles.push(rectangle);
+      state.isCreateRectangleSelected = false;
+    },
   },
 });
 
-export const { selectRectangle, unselectRectangle } = canvasSlice.actions;
+export const { selectCreateRectangle, unselectCreateRectangle, addRectangle } =
+  canvasSlice.actions;
 export default canvasSlice.reducer;
