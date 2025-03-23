@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import canvasReducer from '../features/canvas/canvasSlice';
 import imageReducer from '../features/image/imageSlice';
 
 const rootReducer = combineReducers({
   image: imageReducer,
+  canvas: canvasReducer,
 });
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
