@@ -4,6 +4,7 @@ import { AbsoluteCenter, Box } from '@chakra-ui/react';
 import { KonvaEventObject, Node, NodeConfig } from 'konva/lib/Node';
 import { Image, Layer, Stage } from 'react-konva';
 import useImage from 'use-image';
+import { GridLayer } from '../GridLayer';
 import { RectangleComponent } from '../Rectangle';
 
 export const ImageCanvas = () => {
@@ -50,6 +51,7 @@ export const ImageCanvas = () => {
               <RectangleComponent rectangle={rectangle} />
             ))}
           </Layer>
+          <GridLayer />
         </Stage>
       </AbsoluteCenter>
     </Box>
