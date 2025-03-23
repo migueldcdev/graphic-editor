@@ -55,6 +55,16 @@ const canvasSlice = createSlice({
         rect.coordinates = action.payload.coordinates;
       }
     },
+    updateRectangleSize: (
+      state,
+      action: PayloadAction<{ id: string; width: number; height: number }>,
+    ) => {
+      const rect = state.rectangles.find((r) => r.id === action.payload.id);
+      if (rect) {
+        rect.width = action.payload.width;
+        rect.height = action.payload.height;
+      }
+    },
     selectShowGrid: (state) => {
       state.isCreateRectangleSelected = false;
       state.isShowGridSelected = true;
@@ -72,5 +82,6 @@ export const {
   updateRectangleCoordinates,
   selectShowGrid,
   unselectShowGrid,
+  updateRectangleSize,
 } = canvasSlice.actions;
 export default canvasSlice.reducer;
