@@ -1,19 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type ImageState = {
-  image: boolean;
+  image: string;
+  isImageUploaded: boolean;
 };
 
 const initialState: ImageState = {
-  image: false,
+  image: '',
+  isImageUploaded: false,
 };
 
 const imageSlice = createSlice({
   name: 'image',
   initialState,
   reducers: {
-    setImage: (state, action: PayloadAction<boolean>) => {
+    setImage: (state, action: PayloadAction<string>) => {
       state.image = action.payload;
+      state.isImageUploaded = true;
     },
   },
 });
