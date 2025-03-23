@@ -16,11 +16,13 @@ export type Rectangle = {
 type CanvasState = {
   isCreateRectangleSelected: boolean;
   rectangles: Rectangle[];
+  isShowGridSelected: boolean;
 };
 
 const initialState: CanvasState = {
   isCreateRectangleSelected: false,
   rectangles: [],
+  isShowGridSelected: false,
 };
 
 const canvasSlice = createSlice({
@@ -29,6 +31,7 @@ const canvasSlice = createSlice({
   reducers: {
     selectCreateRectangle: (state) => {
       state.isCreateRectangleSelected = true;
+      state.isShowGridSelected = false;
     },
     unselectCreateRectangle: (state) => {
       state.isCreateRectangleSelected = false;
@@ -52,6 +55,13 @@ const canvasSlice = createSlice({
         rect.coordinates = action.payload.coordinates;
       }
     },
+    selectShowGrid: (state) => {
+      state.isCreateRectangleSelected = false;
+      state.isShowGridSelected = true;
+    },
+    unselectShowGrid: (state) => {
+      state.isShowGridSelected = false;
+    },
   },
 });
 
@@ -60,5 +70,7 @@ export const {
   unselectCreateRectangle,
   addRectangle,
   updateRectangleCoordinates,
+  selectShowGrid,
+  unselectShowGrid,
 } = canvasSlice.actions;
 export default canvasSlice.reducer;

@@ -12,6 +12,9 @@ export const ImageCanvas = () => {
   const isCreateRectangleSelected = useAppSelector(
     (state) => state.canvas.isCreateRectangleSelected,
   );
+  const isShowGridSelected = useAppSelector(
+    (state) => state.canvas.isShowGridSelected,
+  );
   const rectangles = useAppSelector((state) => state.canvas.rectangles);
   const [img] = useImage(image);
   const dispatch = useAppDispatch();
@@ -46,12 +49,14 @@ export const ImageCanvas = () => {
               />
             )}
           </Layer>
-          <Layer>
-            {rectangles.map((rectangle) => (
-              <RectangleComponent rectangle={rectangle} />
-            ))}
-          </Layer>
-          <GridLayer />
+          {!isShowGridSelected && (
+            <Layer>
+              {rectangles.map((rectangle) => (
+                <RectangleComponent rectangle={rectangle} />
+              ))}
+            </Layer>
+          )}
+          {isShowGridSelected && <GridLayer />}
         </Stage>
       </AbsoluteCenter>
     </Box>
