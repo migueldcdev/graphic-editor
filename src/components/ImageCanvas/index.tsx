@@ -33,7 +33,7 @@ export const ImageCanvas = () => {
   // }
 
   return (
-    <Box width="full" height="100vh" bgColor="gray.50">
+    <Box width="10/12" height="100vh" bgColor="gray.50">
       <AbsoluteCenter>
         <Stage
           width={600}

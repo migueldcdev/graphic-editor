@@ -1,5 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppSelector } from './app/hooks';
+import { DataDisplay } from './components/DataDisplay';
 import { FileUploader } from './components/FileUploader';
 import { ImageCanvas } from './components/ImageCanvas';
 import { Toolbar } from './components/Toolbar';
@@ -11,8 +12,15 @@ function App() {
   return (
     <>
       <Flex>
-        {isImageUploaded && <Toolbar />}
-        {isImageUploaded ? <ImageCanvas /> : <FileUploader />}
+        {isImageUploaded ? (
+          <>
+            <Toolbar />
+            <ImageCanvas />
+            <DataDisplay />
+          </>
+        ) : (
+          <FileUploader />
+        )}
       </Flex>
     </>
   );
