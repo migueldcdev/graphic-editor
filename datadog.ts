@@ -1,5 +1,4 @@
 import { datadogRum } from '@datadog/browser-rum';
-import { reactPlugin } from '@datadog/browser-rum-react';
 
 datadogRum.init({
   applicationId: 'c02871ed-12b8-4814-8793-2a76b6c208ef',
@@ -14,5 +13,6 @@ datadogRum.init({
   sessionSampleRate: 100,
   sessionReplaySampleRate: 20,
   defaultPrivacyLevel: 'mask-user-input',
-  plugins: [reactPlugin()],
 });
+
+datadogRum.startSessionReplayRecording();
